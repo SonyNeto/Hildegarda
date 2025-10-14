@@ -32,6 +32,7 @@
       letter-spacing: .15rem;
       padding: 10px 20px;
       border-radius: 10px;
+      z-index: 10;
     }
 
     #colorAura {
@@ -53,6 +54,7 @@
       cursor: pointer;
       margin-top: 20px;
       transition: background 0.5s;
+      z-index: 10;
     }
 
     button:hover {
@@ -108,7 +110,7 @@
       circle.style.filter = "blur(3px) brightness(2)";
       circle.style.width = "80px";
       circle.style.height = "80px";
-      circle.style["mix-blend-mode"] = "screen";
+      circle.style["mix-blend-mode"] = "ligthen";
       circle.style.transform = "translate(-50%, -50%) scale(0)"
       circle.style.transition = "transform 1.5s ease, opacity 1s ease";
 
@@ -120,9 +122,9 @@
       }, 50);
       setTimeout(() => {
         circle.style.opacity = "0";
-      }, duration);
+      }, duration + 1000);
       
-      setTimeout(() => circle.remove(), duration + 1000);
+      setTimeout(() => circle.remove(), duration + 2000);
     }
 
     //const melody = ["F4", "D4", "E4", "F4.", "G4", "A4", "G4", "A4", "A4", "Bb4", "A4", "G4.", "F4.", "A4", "Bb4", "A4", "G4.", "E4.", "G4", "A4", "G4", "F4", "E4", "F4.", "G4", "F4.", "E4."];
@@ -143,7 +145,7 @@
       "E4", "G4", "F4", "G4", "F4.", 
       "E4."
     ];*/
-    const melody = [
+    /*const melody = [
       "F4", "G4", "F4", "G4", "A4.", 
       "Bb4", "A4", "G4.", "Bb4", "A4", "G4", "F4.", 
       "F4", "C5.", 
@@ -155,6 +157,24 @@
       "C5", "F4", "G4", "Bb4", "A4", "G4", "F4.", 
       "E4", "G4", "G4.", 
       "F4."
+    ];*/
+    /*const melody = [
+    "G4", "A4", "C5", "B4", "A4", "B4", "C5", "D5.", 
+    "E5.", "F5", "G5", "G5", "F5", "E5", "D5", "E5", "D5.", 
+    "C5", "B4", "C5", "D5", "C5", "A4", "B4", "G4.", 
+    "A4.", "G4.", "G4.",
+    "G4", "A4", "C5", "B4", "A4", "B4", "C5", "D5.", 
+    "D5.", "E5", "F5", "E5", "D5", "C5", "B4", "A4", 
+    "C5", "B4", "C5", "D5", "C5", "A4", "B4", "G4.", 
+    "A4.", "G4.", "G4."
+    ];*/
+    const melody = [
+      "E4", "E4", "F4", "E4", "D4", "G4", "G4", "A4", "C5", "C5.", 
+      "C5", "D5", "C5", "C5", "B4", "A4", "C5", "B4", "A4", "G4.", 
+      "G4", "A4", "C5", "B4", "A4", "G4", "A4", "G4.", 
+      "A4", "B4", "G4", "G4", "E4", "A4", "A4.", 
+      "D4.", "E4", "G4", "G4", "E4", "G4", "A4", "A4", "G4.", 
+      "A4", "B4", "G4", "A4", "G4", "F4", "E4", "D4", "E4."
     ];
     async function playSequence() {
       await Tone.start();
