@@ -7,25 +7,27 @@ const colors = [
     "rgba(0, 128, 0)",    // verde
     "rgba(255, 255, 0)",  // amarelo
     "rgba(255, 83, 0)",  // laranja
-    "rgba(165, 42, 65)",   // laranja avermelhado
-    "rgba(255, 0, 0)"     // vermelho
+    "rgba(255, 0, 0)",    // vermelho
+    "rgba(202, 42, 75", // violeta + laranja
+    "rgba(0, 191, 128)" // verde + ciano
 ];
 
 const colorAura = document.getElementById("colorAura");
 
 // Cria os 7 círculos coloridos dispostos em círculo
 const radius = 0;
-const intervals = [7, 0, 3, 2, 5, -2, 6, 4];
 let isPlaying = false;
 let timeouts = [];
 const synth = new Tone.Synth({ oscillator: { type: "sine" } }).toDestination();
 
-function activateCircle(interval, duration) {
-    const i = intervals.indexOf(interval);
+function activateCircle(note, duration, mode = "minor") {
+    note = note.replace(/[\d.]+/, "")
+    const notes = mode === "major"? ["C", "E", "B", "A", "G", "D", "G", "", "Bb"] :["A", "D", "F", "E", "G", "C", "B", "Bb", ""];
+    const i = notes.indexOf(note);
     if (i === -1) return;
 
     const circle = document.createElement("div");
-    circle.interval = intervals[i];
+    circle.note = notes[i];
     circle.className = "circle";
     circle.style.background = `radial-gradient(circle, ${colors[i % colors.length]} 0%, transparent 100%)`;
 
@@ -130,8 +132,7 @@ function playMelody() {
 
     Tone.Transport.schedule(time => {
         synth.triggerAttackRelease(note.replace(".", ""), duration, time);
-        const interval = Tone.Frequency(note.replace(".", "")).toMidi() - Tone.Frequency(firstNote.replace(".", "")).toMidi();
-        const timeoutId = setTimeout(() => activateCircle(interval, durSec * 1000), 0);
+        const timeoutId = setTimeout(() => activateCircle(note, durSec * 1000), 0);
         timeouts.push(timeoutId);
         }, currentTime);
 
