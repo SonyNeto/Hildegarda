@@ -98,7 +98,7 @@ const colors = [
 const colorAura = document.getElementById("colorAura");
 
 // Cria os 7 círculos coloridos dispostos em círculo
-const radius = 300;
+const radius = 0;
 let isPlaying = false;
 let timeouts = [];
 const synth = new Tone.Synth({ oscillator: { type: "sine" } }).toDestination();
@@ -112,7 +112,7 @@ function activateCircle(note, duration, mode) {
     const circle = document.createElement("div");
     circle.note = notes[i];
     circle.className = "circle";
-    circle.style.background = `radial-gradient(circle, ${colors[i % colors.length]} 0%, transparent 70%)`;
+    circle.style.background = `${colors[i % colors.length]}`;
 
     const angle = (i / colors.length) * 2 * Math.PI;
     const x = Math.cos(angle) * radius;
@@ -122,12 +122,11 @@ function activateCircle(note, duration, mode) {
     circle.style.top = `calc(50% + ${y}px)`;
     circle.style.position = "absolute";
     circle.style["border-radius"] = "50%";
-    circle.style.filter = "blur(3px) brightness(1)";
-    circle.style.width = "80px";
-    circle.style.height = "80px";
-    circle.style["mix-blend-mode"] = "screen";
+    circle.style.filter = "blur(0px) brightness(1)";
+    circle.style.width = "18px";
+    circle.style.height = "18px";
     circle.style.transform = "translate(-50%, -50%) scale(0)"
-    circle.style.transition = "transform 2s ease-out, opacity 1s ease-out";
+    circle.style.transition = "transform 90s ease-out, opacity 90s ease-out";
 
     colorAura.appendChild(circle);
 
@@ -137,75 +136,14 @@ function activateCircle(note, duration, mode) {
     }, 50);
     setTimeout(() => {
     circle.style.opacity = "0";
-    }, 500 + duration);
+    }, 90000 + duration);
     
-    setTimeout(() => circle.remove(), 1500 + duration);
+    setTimeout(() => circle.remove(), 90000 + duration);
 }
 
-//const melody = ["D4", "F4", "D4", "E4", "F4.", "G4", "A4", "G4", "A4", "A4", "Bb4", "A4", "G4.", "F4.", "A4", "Bb4", "A4", "G4.", "E4.", "G4", "A4", "G4", "F4", "E4", "F4.", "G4", "F4.", "E4."];
-/*const melody = ["D4", "D4", "F4", "D4", "F4", "F4.", 
-    "D4", "E4", "D4.", "F4", "E4", "F4", 
-    "G4", "G4", "G4", "F4", "E4", "F4", 
-    "G4", "F4", "G4.", "G4.", "F4.", 
-    "D4", "F4", "E4", "E4", "G4", "F4.", 
-    "F4.", "E4.",
-    "F4", "G4", "F4", "F4.", "F4.", "G4", "A4", "G4", "A4", "G4", "G4.", "F4.", 
-    "D4.", "E4", "F4", "G4", "F4", "F4.", "F4.", 
-    "D4.", "E4", "F4", "F4", "G4", "F4", "E4", "F4.", "F4.", 
-    "D4", "F4", "E4", "F4", "G4", "F4.", 
-    "D4", "F4.", "D4", "F4.", 
-    "C4", "C4", "D4", "F4", "E4", "F4", "F4", "F4", "F4.", "F4", 
-    "G4", "D4", "E4", "D4", "C4", "D4", "D4.", "C4.", "E4.", 
-    "F4", "G4", "G4", "A4", "G4", "F4", "F4.", 
-    "G4", "F4", "A4", "G4", "G4.", "G4", "F4", "E4", "F4.", 
-    "G4", "G4", "F4", "E4", "F4", "G4", "F4", "G4.", "G4.", "F4.", 
-    "D4", "F4", "E4", "E4", "G4", "F4.", "F4.", "E4."
-];*/
-/*const melody = [
-    "D4", "F4.", "F4.", "E4", "F4.", "A4", 
-    "Bb4", "A4", "G4", "F4.", "E4", 
-    "G4", "A4", "G4", "F4", "G4", "E4", "F4.", 
-    "D4", "D4", "F4", "A4", "G4", 
-    "D4", "F4", "A4", "G4", "F4", "G4", "E4", "F4.", 
-    "D4", "A4", "G4", "F4", "G4", "E4", 
-    "E4", "G4", "F4", "G4", "F4.", 
-    "E4."
-];*/
-/*const melody = [
-    "F4", "G4", "F4", "G4", "A4.", 
-    "Bb4", "A4", "G4.", "Bb4", "A4", "G4", "F4.", 
-    "F4", "C5.", 
-    "C5", "D5", "C5", "Bb4", "A4", "F4", "G4", "A4.", 
-    "Bb4", "A4", "G4", "F4.", 
-    "C5", "C5", "D5", "C5.", 
-    "C5", "F4", "G4", "F4.", 
-    "G4", "A4", "Bb4", "C5.", 
-    "C5", "F4", "G4", "Bb4", "A4", "G4", "F4.", 
-    "E4", "G4", "G4.", 
-    "F4."
-];*/
-/*const melody = [
-"G4", "A4", "C5", "B4", "A4", "B4", "C5", "D5.", 
-"E5.", "F5", "G5", "G5", "F5", "E5", "D5", "E5", "D5.", 
-"C5", "B4", "C5", "D5", "C5", "A4", "B4", "G4.", 
-"A4.", "G4.", "G4.",
-"G4", "A4", "C5", "B4", "A4", "B4", "C5", "D5.", 
-"D5.", "E5", "F5", "E5", "D5", "C5", "B4", "A4", 
-"C5", "B4", "C5", "D5", "C5", "A4", "B4", "G4.", 
-"A4.", "G4.", "G4."
-];*/
-/*const melody = [
-    "E4", "E4", "F4", "E4", "D4", "G4", "G4", "A4", "C5", "C5.", 
-    "C5", "D5", "C5", "C5", "B4", "A4", "C5", "B4", "A4", "G4.", 
-    "G4", "A4", "C5", "B4", "A4", "G4", "A4", "G4.", 
-    "A4", "B4", "G4", "G4", "E4", "A4", "A4.", 
-    "D4.", "E4", "G4", "G4", "E4", "G4", "A4", "A4", "G4.", 
-    "A4", "B4", "G4", "A4", "G4", "F4", "E4", "D4", "E4."
-];*/
+
 let melodyDuration = 0;
 function playMelody() {
-    Tone.Transport.cancel(0);
-    Tone.Transport.seconds = 0;
     melodyDuration = 0;
     let currentTime = 0;
     melody.forEach((note) => {

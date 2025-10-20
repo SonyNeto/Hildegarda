@@ -1,67 +1,119 @@
 @font-face {
-      font-family: "Deutsch Gothic";
-      src: url("fonts/Deutsch.ttf") format("woff2");
-    }
-    body {
-      background: radial-gradient(circle at center, #111 0%, #000000 100%);
-      color: white;
-      font-family: 'Deutsch Gothic';
-      text-align: center;
-      overflow: hidden;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  font-family: "Deutsch Gothic";
+  src: url("./fonts/Deutsch.ttf") format("woff2");
+}
 
-    h1 {
-      margin-bottom: 18px;
-      background: #C79845;
-      border: outset;
-      font-family: "Deutsch Gothic";
-      font-size: 2rem;
-      letter-spacing: .15rem;
-      padding: 10px 20px;
-      border-radius: 50px;
-      z-index: 10;
-    }
+body {
+  background-color: #f3ecd5;
+  color: #3e2f1c;
+  font-family: 'Deutsch Gothic', serif;
+  text-align: center;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
-    #colorAura {
-      isolation: isolate;
-      position: relative;
-      margin: 50px;
-      width: 700px;
-      height: 700px;
-    }
+h1 {
+  background-color: #f0e3c2;
+  color: #3e2f1c;
+  padding: 20px 40px;
+  border-radius: 10px;
+  border: 3px solid #8b5e2b;
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 25px;
+  box-shadow: 2px 2px 0 #8b5e2b, inset 0 1px 2px rgba(255,240,180,0.2);
+  position: relative;
+  z-index: 10;
+}
 
-    .controlBtns {
-      z-index: 10;
-      margin-top: 0px;
-    }
+#chantSelect {
+  background-color: #f0e3c2;
+  color: #3e2f1c;
+  border: 2px solid #8b5e2b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Deutsch Gothic';
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 0 #8b5e2b, inset 0 1px 2px rgba(255,240,180,0.2);
+  transition: all 0.2s ease;
+}
 
-    .controlBtns button {
-      background: #3a3a3a;
-      font-family: "Deutsch Gothic";
-      letter-spacing: .1rem;
-      border: outset;
-      color: white;
-      padding: 5px 10px;
-      font-size: 1rem;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: background 0.5s;
-    }
+#chantSelect:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(210, 180, 100, 0.4);
+}
 
-    #pauseBtn {
-      color: rgb(189, 33, 33);
-    }
+#colorAura {
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background-color: #f3ecd500;
+  position: relative;
+  margin: 30px;
+  isolation: isolate;
+}
 
-    #stopBtn {
-      color: #C79845
-    }
+.controlBtns {
+  margin-top: 10px;
+  z-index: 10;
+}
 
-    .controlBtns button:hover {
-      background: #5f5f5f;
-    }
+.controlBtns button {
+  background-color: #f0e3c2;
+  color: #3e2f1c;
+  border: 2px solid #8b5e2b;
+  box-shadow: 2px 2px 0 #8b5e2b, inset 0 1px 2px rgba(255,240,180,0.2);
+  border-radius: 8px;
+  font-family: 'Deutsch Gothic';
+  letter-spacing: 0.1rem;
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin: 0 6px;
+}
+
+.controlBtns button:hover {
+  background-color: #e6c178;
+  box-shadow: 0 0 10px rgba(210, 180, 100, 0.3);
+}
+
+#pauseBtn { color: #bd2121; }
+#stopBtn { color: #C79845; }
+
+#seekBar {
+ -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  width: 260px;
+  background-color: #f0e3c2;
+  border: 2px solid #8b5e2b;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 2px 2px 0 #8b5e2b;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+#seekBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #f0e3c2;
+  border: 2px solid #8b5e2b;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 #8b5e2b;
+  cursor: pointer;
+}
+
+#seekBar::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background-color: #e6c178;
+}
