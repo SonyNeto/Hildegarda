@@ -8,14 +8,21 @@ body {
   color: #3e2f1c;
   font-family: 'Deutsch Gothic', serif;
   text-align: center;
-  overflow: hidden;
   height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+#top {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  position: relative;
+  gap: 5px;
+  padding-top: 20px;
+  z-index: 10;
 }
 
 h1 {
@@ -26,10 +33,7 @@ h1 {
   border: 3px solid #8b5e2b;
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
-  margin-bottom: 25px;
   box-shadow: 2px 2px 0 #8b5e2b, inset 0 1px 2px rgba(255,240,180,0.2);
-  position: relative;
-  z-index: 10;
 }
 
 #chantSelect {
@@ -40,7 +44,6 @@ h1 {
   padding: 10px 14px;
   font-family: 'Deutsch Gothic';
   font-size: 1.1rem;
-  margin-bottom: 20px;
   box-shadow: 2px 2px 0 #8b5e2b, inset 0 1px 2px rgba(255,240,180,0.2);
   transition: all 0.2s ease;
 }
@@ -50,19 +53,36 @@ h1 {
   box-shadow: 0 0 8px rgba(210, 180, 100, 0.4);
 }
 
-#colorAura {
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background-color: #f3ecd500;
+#middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  margin: 30px;
-  isolation: isolate;
+}
+
+#colorAura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  z-index: 10;
 }
 
 .controlBtns {
-  margin-top: 10px;
-  z-index: 10;
+  display: flex;
+  gap: 6px;
 }
 
 .controlBtns button {
@@ -76,8 +96,7 @@ h1 {
   padding: 8px 16px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.4s ease;
-  margin: 0 6px;
+  transition: all 0.3s ease;
 }
 
 .controlBtns button:hover {
@@ -89,17 +108,15 @@ h1 {
 #stopBtn { color: #C79845; }
 
 #seekBar {
- -webkit-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
-  height: 10px;
   width: 260px;
+  height: 10px;
   background-color: #f0e3c2;
   border: 2px solid #8b5e2b;
   border-radius: 5px;
   outline: none;
   box-shadow: 2px 2px 0 #8b5e2b;
-  margin-top: 24px;
-  margin-bottom: 24px;
 }
 
 #seekBar::-webkit-slider-thumb {

@@ -21,6 +21,22 @@ function gabcToTone(gabc){
     });
 
     switch (melody[0]){
+        case "F3": melody = melody.map(n => {
+            let code = n.charCodeAt(0);
+            let newCode;
+            let octave;
+            const chars = n.slice(1);
+            if (code === 65){
+                newCode = 70;
+            }else if (code === 66){
+                newCode = 71;
+            }else {
+                newCode = code - 2;
+            }
+            octave = "4";
+            return chars.includes("5")? String.fromCharCode(newCode) + chars : String.fromCharCode(newCode) + octave + chars;
+        });
+        break;
         case "C3": melody = melody.map(n => {
             let code = n.charCodeAt(0);
             let newCode;
@@ -95,50 +111,49 @@ const colors = [
     "rgba(0, 191, 128)" // verde + ciano
 ];
 
-const colorAura = document.getElementById("colorAura");
+const canvas = document.getElementById("colorAura");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Cria os 7 círculos coloridos dispostos em círculo
-const radius = 0;
+let circles = [];
 let isPlaying = false;
 let timeouts = [];
 const synth = new Tone.Synth({ oscillator: { type: "sine" } }).toDestination();
 
-function activateCircle(note, duration, mode) {
+function activateCircle(note, mode) {
     note = note.replace(/[\d.]+/, "")
     const notes = mode === "major"? ["C", "E", "B", "A", "F", "D", "G", "", "Bb"] :["A", "D", "F", "E", "G", "C", "B", "Bb", ""];
     const i = notes.indexOf(note);
     if (i === -1) return;
 
-    const circle = document.createElement("div");
-    circle.note = notes[i];
-    circle.className = "circle";
-    circle.style.background = `${colors[i % colors.length]}`;
+    const duration = melodyDuration * 1000;
 
+    const radius = 0;
     const angle = (i / colors.length) * 2 * Math.PI;
-    const x = Math.cos(angle) * radius;
-    const y = Math.sin(angle) * radius;
+    const x = canvas.width/2 + Math.cos(angle) * radius;
+    const y = canvas.height/2 + Math.sin(angle) * radius;
+    const color = colors[i % colors.length];
+    const startTime = performance.now();
 
-    circle.style.left = `calc(50% + ${x}px)`;
-    circle.style.top = `calc(50% + ${y}px)`;
-    circle.style.position = "absolute";
-    circle.style["border-radius"] = "50%";
-    circle.style.filter = "blur(0px) brightness(1)";
-    circle.style.width = "18px";
-    circle.style.height = "18px";
-    circle.style.transform = "translate(-50%, -50%) scale(0)"
-    circle.style.transition = "transform 90s ease-out, opacity 90s ease-out";
+    circles.push({x, y, color, startTime, duration});
+}
 
-    colorAura.appendChild(circle);
+function animate() {
+    const now = performance.now();
 
-    setTimeout(() => {
-    circle.style.transform = "translate(-50%, -50%) scale(50)";
-    circle.style.opacity = "1";
-    }, 50);
-    setTimeout(() => {
-    circle.style.opacity = "0";
-    }, 90000 + duration);
-    
-    setTimeout(() => circle.remove(), 90000 + duration);
+    for (let i = 0; i < circles.length; i++) {
+        const c = circles[i];
+        const t = Math.min((now - c.startTime) / c.duration, 1);
+        const size = 30 * t + (canvas.height/2 - 30) * Math.sqrt(t);
+
+        ctx.beginPath();
+        ctx.fillStyle = c.color;
+        ctx.arc(c.x, c.y, size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    requestAnimationFrame(animate);
 }
 
 
@@ -152,7 +167,7 @@ function playMelody() {
 
     Tone.Transport.schedule(time => {
         synth.triggerAttackRelease(note.replace(".", ""), duration, time);
-        const timeoutId = setTimeout(() => activateCircle(note, durSec * 1000, mode), 0);
+        const timeoutId = setTimeout(() => activateCircle(note, mode), 0);
         timeouts.push(timeoutId);
         }, currentTime);
 
@@ -172,6 +187,8 @@ function pauseMelody() {
 }
 
 function stopMelody() {
+    circles = [];
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     Tone.Transport.stop();
     Tone.Transport.cancel(0);
     Tone.Transport.seconds = 0;
@@ -203,4 +220,4 @@ document.getElementById("seekBar").addEventListener("input", handleSeekBarInput)
 document.getElementById("playBtn").addEventListener("click", playMelody);
 document.getElementById("pauseBtn").addEventListener("click", pauseMelody);
 document.getElementById("stopBtn").addEventListener("click", stopMelody);
-document.getElementById("stopBtn").addEventListener("click", playMelody);
+animate();
