@@ -2,71 +2,52 @@ import * as Tone from "https://cdn.skypack.dev/tone";
 import chants from './chants.json' with { type: 'json' };
 
 function gabcToTone(gabc){
-    const melodyGABC = gabc? [...gabc.matchAll(/\(([^)]+)\)/g)].map(m => m[1]): "";
+    const melodyGABC = gabc? [...gabc.matchAll(/\(([^)]*)\)/g)].map(m => m[1].replace(/\[[^\]]*\]/g, "").trim()) : "";
     let melody = [];
+    let tones = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
     for (let n of melodyGABC){
         melody = melody.concat(n.toUpperCase().match(/[B-Mb-m][^A-Za-zÀ-ÿ\s]*/g) || []);
     }
     melody = melody.map(n => { 
         const chars = n.slice(1);
         switch(true){
-            case /^H.?/.test(n): return "A" + chars;
-            case /^I.?/.test(n): return "B" + chars;
+            case /^A.?/.test(n): return "A3" + chars;
+            case /^B.?/.test(n): return "B3" + chars;
+            case /^H.?/.test(n): return "A4" + chars;
+            case /^I.?/.test(n): return "B4" + chars;
             case /^J.?/.test(n): return "C5" + chars;
             case /^K.?/.test(n): return "D5" + chars;
             case /^L.?/.test(n): return "E5" + chars;
             case /^M.?/.test(n): return "F5" + chars;
-            default: return n;
+            default: return n[0] + "4" + chars;
         }
     });
 
     switch (melody[0]){
-        case "F3": melody = melody.map(n => {
-            let code = n.charCodeAt(0);
-            let newCode;
-            let octave;
-            const chars = n.slice(1);
-            if (code === 65){
-                newCode = 70;
-            }else if (code === 66){
-                newCode = 71;
-            }else {
-                newCode = code - 2;
-            }
-            octave = "4";
-            return chars.includes("5")? String.fromCharCode(newCode) + chars : String.fromCharCode(newCode) + octave + chars;
+        case "F43": melody = melody.map(n => {
+            const chars = n.slice(2);
+            const tone = n.slice(0, 2);
+            const toneIndex = tones.indexOf(tone);
+            return tones[toneIndex - 2] + chars;
         });
         break;
-        case "C3": melody = melody.map(n => {
-            let code = n.charCodeAt(0);
-            let newCode;
-            let octave;
-            const chars = n.slice(1);
-            if (code === 70){
-                newCode = 65;
-            }else if (code === 71){
-                newCode = 66;
-            }else {
-                newCode = code + 2;
-            }
-            if (code === 65 || code === 66){
-                octave = "5";
-            }else {
-                octave = "4";
-            }
-            return chars.includes("5")? String.fromCharCode(newCode) + chars : String.fromCharCode(newCode) + octave + chars;
+        case "C43": melody = melody.map(n => {
+            const chars = n.slice(2);
+            const tone = n.slice(0, 2);
+            const toneIndex = tones.indexOf(tone);
+            return tones[toneIndex + 2] + chars;
         });
         break;
-        case "C4": melody = melody.map(n => {
-            let code = n.charCodeAt(0);
-            let octave = "4";
-            const chars = n.slice(1);
-            return chars.includes("5")? String.fromCharCode(code) + chars : String.fromCharCode(code) + octave + chars;
+        case "C44": melody = melody.map(n => {
+            const chars = n.slice(2);
+            const tone = n.slice(0, 2);
+            const toneIndex = tones.indexOf(tone);
+            return tones[toneIndex] + chars;
         });
         break;
     }
     melody.shift();
-    melody = melody.map(n => n.includes(".") || n.includes("_")? n.replace("_", ".").replace(/[^A-Za-z45.]/g, ""): n.replace(/[^A-Za-z45]/g, ""));
+    melody = melody.map(n => n.includes(".") || n.includes("_")? n.replace("_", ".").replace(/[^A-Za-z345.]/g, ""): n.replace(/[^A-Za-z345]/g, ""));
     return melody;
 }
 
@@ -85,7 +66,6 @@ function setChantName(chantName){
         gabc = chant.gabc;
         melody = gabcToTone(gabc);
         mode = chant.mode;
-        console.log(gabc, melody, mode)
     }
 }
 

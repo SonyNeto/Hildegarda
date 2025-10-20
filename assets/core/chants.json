@@ -28,5 +28,15 @@
     "name": "Ego sum pastor (sine Alleluia)",
     "mode": "minor",
     "gabc": "(f3) E(ggh)go(f!gwh) sum(he~) *() pas(ggh)tor(hf~) bo(g!ihi)nus,(ggh.) (;) et(e) co(fg~)gnós(g)co(f/giffe) o(gi)ves(h) me(ijI'G)as,(g.) (;) et(e) co(fg~)gnós(g)cunt(f) me(efggf) me(efE'Cef)æ.(f/ggf.0) (::)"
+    },
+    {
+    "name": "Salve Regina",
+    "mode":"minor",
+    "gabc": "(c4) SAl(hhgh)ve,(d.) *(,) Re(hg)gí(fe/fgf)na,(e[ll:1]d..) (;) ma(c)ter(d) mi(dc)se(d)ri(ef)cór(g)di(dec)ae :(d.) (::) Vi(hhgh)ta,(d.) (,) dul(hg)cé(fe/fgf)do,(e[ll:1]d..) (;) et(c) spes(d) no(ef)stra,(g.) (,) sal(dec)ve.(d.) (::) Ad(df) te(h') cla(g)má(gfh)mus,(e.) (;) éx(g)su(f)les,(edg.) (,) fí(c)li(d)i(edg) He(fe)vae.(d.) (::) Ad(df) te(h') su(j)spi(g)rá(gfg)mus,(h.) (;) ge(d)mén(fg~)tes(g') et(d) flen(fvED)tes(c.) (;) in(d) hac(dcf) la(gh)cri(g)má(fe)rum(g) val(fe~)le.(dcd.) (::) E(ffg){ia}(f) er(gh~)go,(h'_) (,) Ad(j)vo(g)cá(hvGF)ta(d') no(g)stra,(h.) (;) il(k)los(k) tu(ji/jk)os(h'_) (,) mi(k)se(j')ri(h)cór(gfh')des(g) ó(de)cu(f)los(evDC.) (;) ad(cd) nos(f) con(gf~)vér(dcd)te.(d.) (::) Et(d) Je(a)sum,(c_[ll:1]d) (,) be(d)ne(de)dí(e[ll:1]dd)ctum(c') fru(g)ctum(f) ven(e[ll:1]d~)tris(g) tu(fe)i,(dcd.) (;) no(ixdh'!iv)bis(h.) (,) post(hvGF) hoc(g') ex(d)sí(f)li(fe)um(dc__) (,) os(efe)tén(d.)de.(d.) (::) O(hhg/h!iwj) cle(ivHG)mens :(h.) (::) O(g.h!iwjji) pi(hg)a :(gh..) (::) O(hd__fvEDC'd) (,) (de!fg) dul(gf~)cis(g_[uh:l]h) *() Vir(d)go(c') Ma(d)rí(dgff)a.(e[ll:1]d..) (::)"
+    },
+    {
+    "name": "Domine Jesu Christe (Off.)",
+    "mode": "minor",
+    "gabc": "(f3) DO(f)mi(ef)ne(f) Je(f)su(fe) Chris(f)te,(fhffe.) *(,) Rex(hv.ghi) gló(gfh./ghf/gf)ri(ef)æ,(fhffe.) (;) lí(g)be(ef)ra(f) á(fg)ni(f)mas(f.) (,) óm(fg~)ni(f)um(f) fi(g)dé(gfh)li(fge)um(e) de(efh)func(gh)tó(f_g_f_)rum(f.) (;) de(f) pœ(ef)nis(f) in(f)fér(f!gwh_f)ni,(f.) (,) et(g) de(e) pro(f)fún(h)do(g) la(f_g_f_)cu:(f.) (:) lí(g)be(e)ra(f) e(h)as(hg) de(f) o(g)re(f) le(i)ó(ivvHF'E)nis,(f!gwhg.) (;) ne(e) ab(f)sór(h)be(g)at(f) e(g)as(f.) tár(ghf)ta(ef)rus,(f.) (;) ne(f) ca(f)dant(ec~) in(e) obs(fg)cú(g.f!gwh_f)rum:(f.) (:) sed(f.g!hwi) sí(hg~)gni(fg)fer(g.) sanc(gf~)tus(f!gwhg) Mí(fgf)cha(ef)el(f.) (;) re(f)præ(f)sén(hg~)tet(hi) e(ivvHF'E)as(fg..) (,) in(eg~) lu(g.f!gwh)cem(gf~) sanc(eg/hf~)tam:(f.) (:) *~Quam(f) o(f)lim(ec~) A(e)bra(fg)hæ(gf) pro(h)mi(hg)sís(fg)ti,(ffe.) (;) et(hi) sé(gf//hiHF'fe.//fhg/hig,fhg)mi(fge)ni(e_c) e(e!fwg/hf~)jus.(f.) (::)<sp>V/</sp>~Hós(e)ti(fh)as(hhg) et(fe~) pre(fh)ces(hhg.) (,) ti(e)bi(fh) Dó(h)mi(fgF'E)ne(e.) (,) lau(gf~)dis(gh) of(gf)fé(e)ri(ef)mus:(f.) (:) tu(f.g!hwi) sú(hg)sci(fg)pe(g.) (,) pro(f) a(f)ni(e)má(fh)bus(ghg) il(f.)lis,(f.) (;) qua(ih)rum(iji') hó(h)di(gh)e(f.) (,) me(f)mó(fe)ri(f)am(hg) fá(fg)ci(fe)mus:(e.) (:) fac(fg) e(e)as,(ec) Dó(e)mi(ef)ne,(f.) (,) de(h) mor(gff)te(e) trans(ghi~)í(iih)re(gf) ad(ghg) vi(f.)tam.(f.) (::)"
     }
 ]
