@@ -223,10 +223,10 @@ function generateSVG() {
     var mappings = exsurge.Gabc.createMappingsFromSource(ctxt, gabc);
     var score = new exsurge.ChantScore(ctxt, mappings, true);
     score.performLayoutAsync(ctxt, function() {
-        score.layoutChantLines(ctxt, window.innerWidth/2 - 100, function() {
+        score.layoutChantLines(ctxt, window.innerWidth/1.5 - 30, function() {
             chantContainer.innerHTML = score.createSvg(ctxt);
             const svg = document.querySelector('svg');
-            const height = 2*svg.getAttribute("height");
+            const height = 1.5*svg.getAttribute("height");
             middle.style.height = height + "px";
         });
     });
