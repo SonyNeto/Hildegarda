@@ -3,7 +3,6 @@ import chants from './chants.json' with { type: 'json' };
 
 function gabcToTone(gabc){
     const melodyGABC = gabc? [...gabc.matchAll(/\(([^)]*)\)/g)].map(m => m[1].replace(/\[[^\]]*\]/g, "").trim()) : "";
-    console.log(melodyGABC);
     let melody = [];
     const tones = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
     const clef = melodyGABC.shift();
@@ -68,6 +67,10 @@ function setChantName(chantName){
         gabc = chant.gabc;
         melody = gabcToTone(gabc);
         mode = chant.mode;
+    }else {
+        gabc = "";
+        melody = [];
+        mode = "";
     }
 }
 
@@ -75,8 +78,15 @@ let gabc;
 let melody;
 let mode;
 chantSelect.addEventListener('change', () => {
-    setChantName(chantSelect.value);
-    generateSVG();
+    console.log(chantSelect.value);
+    if (chantSelect.value) {
+        setChantName(chantSelect.value);
+        generateSVG();
+    }else {
+        setChantName(chantSelect.value);
+        chantContainer.innerHTML = "";
+        middle.style.height = "auto";
+    }
     if (melodyDuration > 0) {
         stopMelody();
     }
@@ -214,7 +224,7 @@ function generateSVG() {
     var score = new exsurge.ChantScore(ctxt, mappings, true);
 
     score.performLayoutAsync(ctxt, function() {
-        score.layoutChantLines(ctxt, 600, function() {
+        score.layoutChantLines(ctxt, window.innerHeight - 100, function() {
             chantContainer.innerHTML = score.createSvg(ctxt);
             const svg = document.querySelector('svg');
             const height = 2*svg.getAttribute("height");
