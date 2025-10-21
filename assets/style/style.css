@@ -11,8 +11,9 @@ body {
   font-family: 'Deutsch Gothic', serif;
   text-align: center;
   margin: 0;
-  display: block;
+  display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #top {
@@ -55,8 +56,6 @@ h1 {
 }
 
 #middle {
-  flex: 1;
-  display: flex;
   justify-content: center;
   align-items: top;
   z-index: -1;
@@ -91,12 +90,15 @@ h1 {
   align-items: center;
   margin-top: 10px;
   gap: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
+  box-sizing: content-box;
   z-index: 2;
-  width: 30%;
-  left: 50%;
-  transform: translateX(-50%);
+  width: fit-content;
+}
+
+.controlBtns {
+  display: flex;
+  flex-direction: row;
 }
 
 .controlBtns button {
