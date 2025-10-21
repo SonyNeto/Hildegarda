@@ -3,10 +3,13 @@ import chants from './chants.json' with { type: 'json' };
 
 function gabcToTone(gabc){
     const melodyGABC = gabc? [...gabc.matchAll(/\(([^)]*)\)/g)].map(m => m[1].replace(/\[[^\]]*\]/g, "").trim()) : "";
+    console.log(melodyGABC);
     let melody = [];
-    let tones = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
-    for (let n of melodyGABC){
-        melody = melody.concat(n.toUpperCase().match(/[B-Mb-m][^A-Za-zÀ-ÿ\s]*/g) || []);
+    const tones = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
+    const clef = melodyGABC.shift();
+    for (let n of melodyGABC) {
+        let clean = n.replace(/[^A-Ma-m\.!_]/gi, m => m.match(/[A-Ma-m]/) ? m : '');
+        melody = melody.concat(clean.toUpperCase().match(/[A-M][^A-M\s]*/gi) || []);
     }
     melody = melody.map(n => { 
         const chars = n.slice(1);
@@ -23,22 +26,22 @@ function gabcToTone(gabc){
         }
     });
 
-    switch (melody[0]){
-        case "F43": melody = melody.map(n => {
+    switch (clef){
+        case "f3": melody = melody.map(n => {
             const chars = n.slice(2);
             const tone = n.slice(0, 2);
             const toneIndex = tones.indexOf(tone);
             return tones[toneIndex - 2] + chars;
         });
         break;
-        case "C43": melody = melody.map(n => {
+        case "c3": melody = melody.map(n => {
             const chars = n.slice(2);
             const tone = n.slice(0, 2);
             const toneIndex = tones.indexOf(tone);
             return tones[toneIndex + 2] + chars;
         });
         break;
-        case "C44": melody = melody.map(n => {
+        case "c4": melody = melody.map(n => {
             const chars = n.slice(2);
             const tone = n.slice(0, 2);
             const toneIndex = tones.indexOf(tone);
@@ -46,8 +49,7 @@ function gabcToTone(gabc){
         });
         break;
     }
-    melody.shift();
-    melody = melody.map(n => n.includes(".") || n.includes("_")? n.replace("_", ".").replace(/[^A-Za-z345.]/g, ""): n.replace(/[^A-Za-z345]/g, ""));
+    melody = melody.map(n => n.includes(".") || n.includes("_") || n.includes("!")? n.replace(/[_!]/gi, ".").replace(/[^A-Za-z345.]/g, ""): n.replace(/[^A-Za-z345]/g, ""));
     return melody;
 }
 
@@ -74,6 +76,7 @@ let melody;
 let mode;
 chantSelect.addEventListener('change', () => {
     setChantName(chantSelect.value);
+    generateSVG();
     if (melodyDuration > 0) {
         stopMelody();
     }
@@ -201,3 +204,21 @@ document.getElementById("playBtn").addEventListener("click", playMelody);
 document.getElementById("pauseBtn").addEventListener("click", pauseMelody);
 document.getElementById("stopBtn").addEventListener("click", stopMelody);
 animate();
+
+function generateSVG() {
+    const chantContainer = document.getElementById("chantContainer");
+    const middle = document.getElementById("middle");
+    chantContainer.innerHTML = "";
+    var ctxt = new exsurge.ChantContext();
+    var mappings = exsurge.Gabc.createMappingsFromSource(ctxt, gabc);
+    var score = new exsurge.ChantScore(ctxt, mappings, true);
+
+    score.performLayoutAsync(ctxt, function() {
+        score.layoutChantLines(ctxt, 600, function() {
+            chantContainer.innerHTML = score.createSvg(ctxt);
+            const svg = document.querySelector('svg');
+            const height = 2*svg.getAttribute("height");
+            middle.style.height = height + "px";
+        });
+    });
+}
