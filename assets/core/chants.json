@@ -38,5 +38,20 @@
     "name": "Domine Jesu Christe (Off.)",
     "mode": "minor",
     "gabc": "(f3) DO(f)mi(ef)ne(f) Je(f)su(fe) Chris(f)te,(fhffe.) *(,) Rex(hv.ghi) gló(gfh./ghf/gf)ri(ef)æ,(fhffe.) (;) lí(g)be(ef)ra(f) á(fg)ni(f)mas(f.) (,) óm(fg~)ni(f)um(f) fi(g)dé(gfh)li(fge)um(e) de(efh)func(gh)tó(f_g_f_)rum(f.) (;) de(f) pœ(ef)nis(f) in(f)fér(f!gwh_f)ni,(f.) (,) et(g) de(e) pro(f)fún(h)do(g) la(f_g_f_)cu:(f.) (:) lí(g)be(e)ra(f) e(h)as(hg) de(f) o(g)re(f) le(i)ó(ivvHF'E)nis,(f!gwhg.) (;) ne(e) ab(f)sór(h)be(g)at(f) e(g)as(f.) tár(ghf)ta(ef)rus,(f.) (;) ne(f) ca(f)dant(ec~) in(e) obs(fg)cú(g.f!gwh_f)rum:(f.) (:) sed(f.g!hwi) sí(hg~)gni(fg)fer(g.) sanc(gf~)tus(f!gwhg) Mí(fgf)cha(ef)el(f.) (;) re(f)præ(f)sén(hg~)tet(hi) e(ivvHF'E)as(fg..) (,) in(eg~) lu(g.f!gwh)cem(gf~) sanc(eg/hf~)tam:(f.) (:) *~Quam(f) o(f)lim(ec~) A(e)bra(fg)hæ(gf) pro(h)mi(hg)sís(fg)ti,(ffe.) (;) et(hi) sé(gf//hiHF'fe.//fhg/hig,fhg)mi(fge)ni(e_c) e(e!fwg/hf~)jus.(f.) (::)<sp>V/</sp>~Hós(e)ti(fh)as(hhg) et(fe~) pre(fh)ces(hhg.) (,) ti(e)bi(fh) Dó(h)mi(fgF'E)ne(e.) (,) lau(gf~)dis(gh) of(gf)fé(e)ri(ef)mus:(f.) (:) tu(f.g!hwi) sú(hg)sci(fg)pe(g.) (,) pro(f) a(f)ni(e)má(fh)bus(ghg) il(f.)lis,(f.) (;) qua(ih)rum(iji') hó(h)di(gh)e(f.) (,) me(f)mó(fe)ri(f)am(hg) fá(fg)ci(fe)mus:(e.) (:) fac(fg) e(e)as,(ec) Dó(e)mi(ef)ne,(f.) (,) de(h) mor(gff)te(e) trans(ghi~)í(iih)re(gf) ad(ghg) vi(f.)tam.(f.) (::)"
+    },
+    {
+    "name": "Omnia quae fecisti",
+    "mode": "minor",
+    "gabc": "(c4) OM(gj)ni(j)a(j) *(,) quæ(j) fe(j)cís(j)ti(h) no(jj)bis,(g) Dó(jj)mi(hkJI'j)ne,(ji..) (;) in(jk) ve(jkjj)ro(i_h) ju(h)dí(jj)ci(g)o(g) (,) fe(hggf/ghg)cís(egff)ti,(fe..) (:) qui(f)a(e!fwg'!hv) pec(g)cá(hhg)vi(g)mus(gfh) ti(h!iw!jvI'HG'h)bi,(hg..) (;) et(g) man(hi~)dá(i)tis(i) tu(j)is(h.) non(h) ob(h)e(h)dí(h)vi(h.f!gwhgh)mus:(hg..) (:) sed(g) da(g.h!iwj/kjjvIG) gló(g.h!iwj)ri(g)am(g.) (,) nó(ef'h)mi(h)ni(h!iwj) tu(g_fgvFD)o,(d.) (:) et(gj~) fac(jv.jjj) no(h)bís(hih)cum(h.) (,) se(g)cún(ghgh)dum(f_e) mul(fg~)ti(f)tú(ef/gfg)di(egff)nem(eef.) (,) mi(fd)se(fe)ri(fg)cór(g/jjV!hi~)di(gfg)æ(ghG'Fghg) tu(egff)æ.(fe..) (::)"
+    },
+    {
+    "name": "Spiritus Domini cum Alleluia",
+    "mode": "major",
+    "gabc":"(c4) SPí(d)ri(fhg)tus(gh~) Dó(h)mi(ghGF'g)ni(gf..) *(,) re(fh)plé(jjk)vit(j) or(kl~)bem(j) ter(jjj)rá(g)rum,(jj) (,) al(h)le(hv.fhg)lú(ghg___)ia:(g.) (:) et(fg) hoc(gjj) quod(g) cón(g!jij)ti(hiHG'h)net(h_g) óm(gh'j~)ni(j)a,(j.) (;) sci(i)én(jk~)ti(k_[hl:1]j)am(jjj/h_i_h._) ha(kl)bet(j) vo(jjj)cis,(h.) (;) al(hg~)le(fg'h)lú(hghv_G~F~)ia,(f.) (,) al(f!h'j~)le(j)lú(jijV!hj~)ia,(ijHG.) (,) al(gh~)le(hv.fhg)lú(ghg___)ia.(g.) (::)"
+    },
+    {
+    "name": "Laetetur cor",
+    "mode": "minor",
+    "gabc": "(f3) LÆ(c)té(ef)tur(f) cor(fhffe.) *(,) quæ(f)rén(hh)ti(h)um(hg/hi!jvH'Gh') Dó(f)mi(f_g_f_)num:(f.) (:) quǽ(h)ri(ihh)te(fhg) Dó(hghf)mi(f)num,(fv.efEC.) (;) et(e) con(ef/hg)fir(hhh)má(f!gwh)mi(fgFE'f)ni:(fe..) (:) quǽ(f)ri(fef)te(fv.efEC.) (,) fá(fge)ci(f)em(hh) e(h)jus(hg/hi!jvH'Gh) sem(f_g_f_)per.(f.) (::)"
     }
 ]

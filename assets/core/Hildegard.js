@@ -229,7 +229,7 @@ function generateSVG() {
     var score = new exsurge.ChantScore(ctxt, mappings, true);
     const scaleFactor = 1.5;
     score.performLayoutAsync(ctxt, function() {
-        score.layoutChantLines(ctxt, window.innerWidth*(1/scaleFactor - 1/4), function() {
+        score.layoutChantLines(ctxt, window.innerHeight>=window.innerWidth? window.innerWidth*(1/scaleFactor - 1/5) : window.innerWidth*(1/scaleFactor - 1/3), function() {
             chantContainer.innerHTML = score.createSvg(ctxt);
             
             const svg = document.querySelector('svg');
