@@ -116,7 +116,7 @@ const synth = new Tone.Synth({ oscillator: { type: "sine" } }).toDestination();
 
 function activateCircle(note, mode, noteMelodyIndex) {
     note = note.replace(/[\d.]+/, "")
-    const notes = mode === "major"? ["C", "E", "B", "A", "F", "D", "G", "", "Bb"] :["A", "D", "F", "E", "G", "C", "B", "Bb", ""];
+    const notes = mode === "major"? ["D", "E", "B", "A", "F", "C", "G", "", "Bb"] :["A", "D", "F", "E", "G", "C", "B", "Bb", ""];
     const i = notes.indexOf(note);
     if (i === -1) return;
 
