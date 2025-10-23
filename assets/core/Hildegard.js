@@ -4,15 +4,18 @@ import chants from './chants.json' with { type: 'json' };
 function gabcToTone(gabc){
     const melodyGABC = gabc? [...gabc.matchAll(/\(([^)]*)\)/g)].map(m => m[1].replace(/\[[^\]]*\]/g, "").trim()) : "";
     let melody = [];
-    const tones = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
+    const tones = ["F3", "G3,", "A3", "Bb3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "Bb4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
     const clef = melodyGABC.shift();
     for (let n of melodyGABC) {
-        let clean = n.replace(/[^A-Ma-m\.!_]/gi, m => m.match(/[A-Ma-m]/) ? m : '');
-        melody = melody.concat(clean.toUpperCase().match(/[A-M][^A-M\s]*/gi) || []);
+        let nUpper = n.toUpperCase();
+        let nWithBFlat = nUpper.includes('IX')? nUpper.replace("IX", "").replaceAll("I", "Bb") : nUpper;
+        let clean = nWithBFlat.replace(/[^A-Ma-mBb\.!_]/gi, m => m.match(/[A-Ma-m]/) ? m : '');
+        melody = melody.concat(clean.match(/(Bb|[A-M])[^A-M\s]*/gi) || []);
     }
     melody = melody.map(n => { 
-        const chars = n.slice(1);
+        const chars = n.includes("Bb")? n.slice(2) : n.slice(1);
         switch(true){
+            case /^Bb.?/.test(n): return "Bb4" + chars;
             case /^A.?/.test(n): return "A3" + chars;
             case /^B.?/.test(n): return "B3" + chars;
             case /^H.?/.test(n): return "A4" + chars;
@@ -24,25 +27,25 @@ function gabcToTone(gabc){
             default: return n[0] + "4" + chars;
         }
     });
-
+    console.log(melody);
     switch (clef){
         case "f3": melody = melody.map(n => {
-            const chars = n.slice(2);
-            const tone = n.slice(0, 2);
+            const chars = n.includes("Bb")? n.slice(3) : n.slice(2);
+            const tone = n.includes("Bb")? n.slice(0, 3) : n.slice(0, 2);
             const toneIndex = tones.indexOf(tone);
             return tones[toneIndex - 2] + chars;
         });
         break;
         case "c3": melody = melody.map(n => {
-            const chars = n.slice(2);
-            const tone = n.slice(0, 2);
+            const chars = n.includes("Bb")? n.slice(3) : n.slice(2);
+            const tone = n.includes("Bb")? n.slice(0, 3) : n.slice(0, 2);
             const toneIndex = tones.indexOf(tone);
             return tones[toneIndex + 2] + chars;
         });
         break;
         case "c4": melody = melody.map(n => {
-            const chars = n.slice(2);
-            const tone = n.slice(0, 2);
+            const chars = n.includes("Bb")? n.slice(3) : n.slice(2);
+            const tone = n.includes("Bb")? n.slice(0, 3) : n.slice(0, 2);
             const toneIndex = tones.indexOf(tone);
             return tones[toneIndex] + chars;
         });
@@ -229,9 +232,9 @@ function generateSVG() {
     var score = new exsurge.ChantScore(ctxt, mappings, true);
     const scaleFactor = 1.5;
     score.performLayoutAsync(ctxt, function() {
-        score.layoutChantLines(ctxt, window.innerHeight>=window.innerWidth? window.innerWidth*(1/scaleFactor - 1/5) : window.innerWidth*(1/scaleFactor - 1/3), function() {
+        score.layoutChantLines(ctxt, document.documentElement.clientHeight>=document.documentElement.clientWidth? 
+            document.documentElement.clientWidth*(1/scaleFactor - 1/15) : document.documentElement.clientWidth*(1/scaleFactor - 1/3), function() {
             chantContainer.innerHTML = score.createSvg(ctxt);
-            
             const svg = document.querySelector('svg');
             const height = svg.getAttribute("height");
             const width = svg.getAttribute("width");
