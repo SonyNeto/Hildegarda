@@ -10,6 +10,12 @@
     "gabc": "(c4) RE(d)sur(dfd)ré(f)xi,(fff/ded.) *(;) et(fe) ad(fg)huc(g) te(g)cum(f) sum,(ef/gfg.) (,) al(gv.!fff)le(dfe)lú(egff)ia:(fe..) (:) po(fgf)su(ff)ís(f!gwh)ti(ghg) (gv.!fff)per(d!ewf/gf) me(f.) (,) ma(fff)num(d!ewf) tu(fgF'E)am,(f.) (;) al(fff)le(dfe)lú(fgff)ia:(d//ffdf.) (:) mi(c)rá(cd/fef)bi(f)lis(f) fac(fffg)ta(deDC'd) est(dc..) (,) sci(e!fwg)én(ghg)ti(f)a(fff) tu(gfhg)a,(g.) (;) al(gf~)le(e/f'g)lú(gf~)ia,(e/fgfg.) (,) al(gv.!fff)le(dfe)lú(egff)ia.(fe..) (::)"
     },
     {
+    "name": "Haec dies... Confitemini",
+    "mode": "minor",
+    "gabc": "(c3) HÆC(gxf_egvFEfd/f_h) di(hhhvFEfef)es,(f.) *(;) quam(ef) fe(hh)cit(hh//ijhhvF'Ef.) (,) Dó(hfh)mi(hhh)nus:(h.f!gwh!iv.hi/jhh/iih.0) (:) ex(f)sul(h)té(hg/hi!jvHGhhg,i_hivHF)mus,(fhF'Efhhf//hvvGF'/!hee[ll:1]d.0) (:) et(de'f) læ(fef)té(hf/hhh)mur(hiHF.1) (;) in(ef) e(hf/h_i)a.(ih/ijI'H) (,) (jh/jkIG'hvF'E//f!gwh!iv.hi'j) (,) (ijijHF'gwhf.1) (::) <sp>V/</sp> Con(f)fi(h)té(hi~)mi(i)ni(i) Dó(ih/ij!kvJH)mi(hi/jij)no,(j_0kvJH'//jh/j_i//kvJIkvJI.) (:) quón(h.0/[-0.5]ijijHF.h.0/[-0.5]ijHF.1e.f!gwh!iv./[-0.5]llvJ'I)i(ji)am(i.) (,) bo(iv.hhhjv_I_H_3jv_I_H_3i_f)nus:(f.) (:) quón(hhi)i(h)am(h) in(h) sǽ(hg/hi!jvHGhhg,i_hivHF')cu(f)lum(fhF'Efhhf//hvvGF'hee[ll:1]d.0) (:) mi(d)se(de'f)ri(f)cór(f.0/[-0.5]hvGF'g)di(e)a(f) *() e(hf/h_i)jus.(i_jH'Ghi..) (,) (ef'hh'jIH'GF'gwhf.1) (::)"
+
+    },
+    {
     "name": "Vocem jucunditatis",
     "mode": "minor",
     "gabc":"(c4) VO(eef)cem(dge) ju(eg)cun(gh)di(hji)tá(j)tis(j.) *(,) an(hj~)nun(j)ti(jjjh)á(h_g)te,(ghgg/efe.) (;) et(e) au(ef'h)di(h!iwjg)á(g_f)tur,(fgff/ded.) (,) al(ef)le(dfe)lú(egff)ia:(fe..) (:) nun(e_f)ti(dge)á(eg)te(gh) (,) us(hkJI'j)que(i.) ad(j) ex(j)tré(j_i/j_i/jlk)mum(k_[hl:1]i) ter(ikj)ræ:(iki/jhhg.) (:) li(g)be(h!iwj)rá(j)vit(ih~) Dó(jjj)mi(hg)nus(g.) (,) pó(gih)pu(g)lum(g) su(ef'h)um,(h.) (;) al(h!iwjg~)le(h_g)lú(gefv_E~D~)ia,(e[ll:1]d..) (,) al(de)le(gh//g.h!iwj_ijvIG//h!iw!jvIH/!i.g!hw!ivHG)l(egff)ia.(fe..) (::)"
@@ -53,5 +59,20 @@
     "name": "Laetetur cor",
     "mode": "minor",
     "gabc": "(f3) LÆ(c)té(ef)tur(f) cor(fhffe.) *(,) quæ(f)rén(hh)ti(h)um(hg/hi!jvH'Gh') Dó(f)mi(f_g_f_)num:(f.) (:) quǽ(h)ri(ihh)te(fhg) Dó(hghf)mi(f)num,(fv.efEC.) (;) et(e) con(ef/hg)fir(hhh)má(f!gwh)mi(fgFE'f)ni:(fe..) (:) quǽ(f)ri(fef)te(fv.efEC.) (,) fá(fge)ci(f)em(hh) e(h)jus(hg/hi!jvH'Gh) sem(f_g_f_)per.(f.) (::)"
+    },
+    {
+    "name": "Alleluia: Emitte Spiritum",
+    "mode": "minor",
+    "gabc": "(c4) AL(fd~)le(ef'g)lú(hgh)ia.(ixhiHG'gf.0) (,) (ixhiHG'ge./ghGF'Ef_gffe.) (::) <sp>V/</sp> E(h)mít(h)te(ixg'//ivHG'hffe.) (,) Spí(fh)ri(ghg'/hf)tum(e[ll:1]d~) tu(egF'D)um,(d.) (:) et(dc~) cre(f)a(ghg)bún(ixhiG'Eg./hiF'D//fffdgvFE.,df/h_f/!g_e/!fv.df!gvef~)tur:(e.) (:) et(f) re(f)no(f)vá(ef)bis(f) fá(ef'g)ci(gdgvFE)em(e.) (,) ter(fd/ef!g'h)ræ.(ixhiHG'gf.0) (,) (ixhiHG'ge./ghGF'Ef_gffe.) (::)"
+    },
+    {
+    "name": "Alleluia: Dominus dixit",
+    "mode": "major",
+    "gabc": "(c3) AL(def)le(f_e/f!gwhg)lú(fhh'1h)ia.(hiHF'fe.) {*}~<i>ij.</i>(;) (gh//efED.f!gwhhg ehf/gffe.) (::) <sp>V/</sp> Dó(hv.gih)mi(h)nus(h) di(hg)xit(g) ad(gh!ivvHFhf/gh) me:(g.) (;) Fí(g)li(gf)us(hji) me(h)us(gh) es(f_ehvvGE.gxfgFD.1gxegF'Efe) tu,(e.) (:) e(efeh)go(h) (,) hó(hfh'GE//fhF'D//gxgvFEf.0/[-0.5]hhh/ijHF.1,g_i_g_ivHG'he.gxf_e/!g_e//!gvFEfd)di(e[ll:1]d)e(d.) *(;) gé(fde)nu(ef)i(hg/hfh) te.(ghFE.) (,) (df!hvF'E//d.0f!gwhghvGFg.//egf'/!gvE'Defe.) (;) (gxhhvF'E/!fgED.gyhhvF'Ef_gffe.) (::)"
+    },
+    {
+    "name": "O panis dulcissime",
+    "mode": "minor",
+    "gabc": "(c4) O(d') pa(e)nis(f) dul(g)cís(f')si(e)me,(d.) (;) O(f') fi(g)dé(h)lis(h) á(g')ni(f)mae(e.) (;) Vi(h')tá(d)lis(e) re(g)fé(f')cti(e)o!(d.) (::) 2. O(d') Pa(e)schá(f)lis(g) ví(f')cti(e)mae(d.) (;) A(f')gne(g) man(h)su<e>e</e>(h)tís(g')si(f)me,(e.) (;) Le(h')gá(d)lis(e) ob(g)lá(f')ti(e)o!(d.) (::) 3. Je(f')su(f) di(g)le(g)ctís(ixi')si(h)me,(g.) (;) Quae(e') sub(f) pa(g)nis(h) spé(g')ci(f)e(h.) (;) Ve(e')lá(f)ris(g) di(d)ví(f')ni(e)tus!(d.) (::) 4. Vi(f')ctu(f) mul(g)ti(g)fá(ixi')ri(h)e(g.) (;) Ré(e')cre(f)a(g) nos(h) grá(g')ti(f)ae(h.) (;) Se(e')pti(f)fór(g)mis(d) Spí(f')ri(e)tus!(d.) (::) 5. Su(h')mén(j)tem,(k) cum(k) sú(j')me(i)ris,(h.) (;) Qui(j')a(g) non(g) con(f)sú(g')me(h)ris,(h.) (;) Ae(f')tér(e)ne(d) vi(e)ví(c')fi(d)cas.(d.) (::) 6. Nam(h') re(j)á(k)tum(k) scé(j')le(i)ris(h.) (;) Do(j')no(g) tan(g)ti(f) mú(g')ne(h)ris(h.) (;) Cle(f')mén(e)ter(d) pu(e)rí(c')fi(d)cas.(d.) (::) 7. In(h') te(h) nos(g) ut(j) ú(i')ni(g)as,(h.) (;) Et(i') vir(j)tú(k)te(h) mú(j')ni(i)as,(h.) (;) Da(i') te(j) di(h)gne(i) sú(g')me(h)re.(h.) (::) 8. Ut(h') car(h)ná(g)les(j) fú(i')ri(g)as(h.) (;) Pro(i')pél(j)lens,(k) nos(h) fá(j')ci(i)as(h.) (;) Te(i')cum(j) pi(h)e(i) ví(g')ve(h)re.(h.) (::) 9. Sic(h') re(g)fé(g)cti(d) pó(f')cu(e)lis(d.) (;) Sán(f')gui(g)nis,(h) et(ixi) é(g')pu(ixi)lis(h.) (;) Tu(h')ae(g) car(e)nis(f) ó(e')pti(d)mis.(d.) (::) 10. Sae(h')cu(g)ló(g)rum(d) saé(f')cu(e)lis,(d.) (;) E(f')pu(g)lé(h)mur(ixi) sé(g')du(ixi)lis(h.) (;) In(h')vi(g)tá(e)ti(f) á(e')zy(d)mis.(d.) (::)  A(ded)men.(cd..) (::)"
     }
 ]
