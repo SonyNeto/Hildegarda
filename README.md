@@ -25,6 +25,4 @@ Each neume or note is associated with a hue that reflects its pitch, relative to
 - https://sonyneto.github.io/Hildegarda
 
 ## License
-This project uses a dual license model:
 - **Code:** [MIT License](https://opensource.org/licenses/MIT)  
-- **Visual and Audio Assets:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
