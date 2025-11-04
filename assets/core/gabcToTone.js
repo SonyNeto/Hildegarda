@@ -21,7 +21,6 @@ export function gabcToTone(gabc){ // Criar módulo específico para isso com mel
         return match
     }));
     melodyGABC = melodyGABC.map(e => e.replace(trashBin, "")) // Remoção de caracteres de formatação
-    console.log(melodyGABC);
     melodyGABC = melodyGABC.map(e => e.replace(cadentPesClivis, match => {
         return match[0] + '.' + match[match.length - 3] + '.';
     })); // Alongamento das notas nas cadencias de pes e clivis
