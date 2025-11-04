@@ -168,6 +168,14 @@ document.getElementById("seekBar").addEventListener("input", handleSeekBarInput)
 document.getElementById("playBtn").addEventListener("click", playMelody);
 document.getElementById("pauseBtn").addEventListener("click", pauseMelody);
 document.getElementById("stopBtn").addEventListener("click", stopMelody);
+document.body.addEventListener("keydown", (event) => {
+    if (event.key === " " && !isPlaying) {
+        playMelody();
+    }else if (event.key === " " && isPlaying){
+        pauseMelody();
+    }
+});
+
 animate();
 
 function generateSVG() {
