@@ -1,7 +1,7 @@
 export function gabcToTone(gabc){ // Criar módulo específico para isso com melhores implementações
     let melodyGABC = gabc? [...gabc.matchAll(/\(([^)]*)\)/g)].map(m => m[1].replace(/\[[^\]]*\]/g, "").trim()) : "";
     const tones = /[A-Ma-m]/g;
-    const clef = /[cfCF]b?[1234]/;
+    const clef = /[cfCF][bB]?[1234]/;
     const rythmicSigns = /[._]\d*?/g;
     const accidents = /[A-Ma-m][XYxy#]/g;
     const spaces = /[!@/vV]|\/\/|\/0|\[-?\d+\]/g;
@@ -15,8 +15,26 @@ export function gabcToTone(gabc){ // Criar módulo específico para isso com mel
     const cadentTorculus = /[A-Ma-m][^A-Ma-m]?[A-Ma-m][^A-Ma-m]?[A-Ma-m][^A-Ma-m]?\_\_\_/g;
     const respiration = /[,;:]|::/g;
 
+    const melody = [];
+    const gabcNotes = ["A","B","C","D","E","F","G","H","I","J","K","L","M"];
+    const toneNotes = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
     const notes = new RegExp(tones.source + '(' + rythmicSigns.source + ')?', 'g');
     const trashBin = new RegExp(spaces.source + '|' + noteModificator.source, 'g');
+    let accidentedScore = false;
+    let accidentedNote = '';
+
+    melodyGABC.forEach((e, i) => {
+        if (clef.test(e) && e.includes('b')) {
+            accidentedNote = gabcNotes[2 * parseInt(e[2])].toLowerCase();
+            accidentedScore = true;
+            melodyGABC[i] = e.replace('b', '');
+        }else if (clef.test(e) && !e.includes('b')) {
+            accidentedScore = false;
+            accidentedNote = '';
+        }else if (e.toLowerCase().includes(accidentedNote) && accidentedScore) {
+            melodyGABC[i] = e.replace(accidentedNote, accidentedNote + 'x' + accidentedNote);
+        }
+    });
     melodyGABC = melodyGABC.map(e => e.replace(bivirga, match => {
         match = match.replace('vv', match[0]);
         return match
@@ -88,9 +106,6 @@ export function gabcToTone(gabc){ // Criar módulo específico para isso com mel
         return noteStr;
     }
     melodyGABC = melodyGABC.map(e => accidents.test(e)? placeAccidents(e): e);
-    const melody = [];
-    const gabcNotes = ["A","B","C","D","E","F","G","H","I","J","K","L","M"];
-    const toneNotes = ["F3", "G3,", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5"];
     
     let scoreSplitted = [];
     let clefFound = false;
