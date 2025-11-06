@@ -11,7 +11,8 @@ export function gabcToTone(gabc){ // Criar módulo específico para isso com mel
     const quilisma = /[A-Ma-m][^A-Ma-m]?[A-Ma-m]w[A-Ma-m]/g;
     const pressus = /([a-m])'?\1/gi;
     const bivirga = /[A-Ma-m]vv/g;
-    const cadentPesClivis = /[A-Ma-m][^A-Ma-m]?[A-Ma-m]\.\./g;
+    const cadentPesClivis = /[A-Ma-m][^A-Ma-m]?[A-Ma-m][^A-Ma-m]?\.\./g;
+    const cadentTorculus = /[A-Ma-m][^A-Ma-m]?[A-Ma-m][^A-Ma-m]?[A-Ma-m][^A-Ma-m]?\_\_\_/g;
     const respiration = /[,;:]|::/g;
 
     const notes = new RegExp(tones.source + '(' + rythmicSigns.source + ')?', 'g');
@@ -22,8 +23,13 @@ export function gabcToTone(gabc){ // Criar módulo específico para isso com mel
     }));
     melodyGABC = melodyGABC.map(e => e.replace(trashBin, "")) // Remoção de caracteres de formatação
     melodyGABC = melodyGABC.map(e => e.replace(cadentPesClivis, match => {
-        return match[0] + '.' + match[match.length - 3] + '.';
+        let cadentNotes = [...match.matchAll(notes)].map(n => n[0]);
+        return cadentNotes[0] + '.' + cadentNotes[1] + '.';
     })); // Alongamento das notas nas cadencias de pes e clivis
+     melodyGABC = melodyGABC.map(e => e.replace(cadentTorculus, match => {
+        let cadentNotes = [...match.matchAll(notes)].map(n => n[0]);
+        return cadentNotes[0] + '.' + cadentNotes[1] + '.' + cadentNotes[2].replace("_", "");
+    })); // Alongamento das notas nas cadencias de torculus
     melodyGABC = melodyGABC.map(e => e.replace(rythmicSigns, ".")); // Marcações de alongamento das notas
     melodyGABC = melodyGABC.map(e => e.replace(salicus, match => match.replace("'", ".")));
     /*melodyGABC = melodyGABC.map(e => e.replace(bistrophaTristropha, match => {
